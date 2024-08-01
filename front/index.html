@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>DTI | Lembretes</title>
 </head>
+
 <body>
-    
+    <main>
+        <form id="cadastrar-lembretes">
+            <label for="nome_do_lembrete">Nome do Lembrete</label>
+            <input type="text" id="nome_do_lembrete" name="nome_do_lembrete">
+
+            <label for="data_do_lembrete">Data do Lembrete</label>
+            <input type="date" id="data_do_lembrete" name="data_do_lembrete">
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
