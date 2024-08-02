@@ -29,7 +29,11 @@ public class Lembrete {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if (nome != null) {
+            this.nome = nome;
+        } else {
+            throw new IllegalArgumentException("É necessário um nome para a tarefa");
+        }
     }
 
     public LocalDate getData() {
@@ -37,6 +41,10 @@ public class Lembrete {
     }
 
     public void setData(LocalDate data) {
-        this.data = data;
+        if (data.isAfter(LocalDate.now())) {
+            this.data = data;
+        } else {
+            throw new IllegalArgumentException("A data deve ser maior que a data atual.");
+        }
     }
 }
