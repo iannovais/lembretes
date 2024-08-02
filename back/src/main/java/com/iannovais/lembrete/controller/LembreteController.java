@@ -1,6 +1,7 @@
 package com.iannovais.lembrete.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,16 +25,21 @@ public class LembreteController {
 
     @PostMapping
     List<Lembrete> create(@RequestBody Lembrete lembrete) {
-        return lembreteService.create(lembrete);
+        return lembreteService.criar(lembrete);
     }
 
     @GetMapping
     List<Lembrete> list() {
-        return lembreteService.list();
+        return lembreteService.listar();
+    }
+
+    @GetMapping("/agrupados")
+    public Map<String, List<Lembrete>> listGroupedByDate() {
+        return lembreteService.listarPorGrupo();
     }
 
     @DeleteMapping("{id}")
     List<Lembrete> delete(@PathVariable Long id) {
-        return lembreteService.delete(id);
+        return lembreteService.deletar(id);
     }
 }
