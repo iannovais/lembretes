@@ -19,19 +19,24 @@ public class Lembrete {
     public Long getID() {
         return ID;
     }
+
     public void setID(Long iD) {
         ID = iD;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public LocalDate getData() {
         return data;
     }
+
     public void setData(LocalDate data) {
         this.data = data;
-    }   
+    }
 }
