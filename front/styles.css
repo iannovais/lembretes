@@ -139,8 +139,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     grid-column: 2;
 }
 
-#container-lista-lembretes h2 {
-    margin-bottom: 20px;
+#container-lista-lembretes h3 {
+    margin-top: 20px;
 }
 
 #exibir-lembretes {

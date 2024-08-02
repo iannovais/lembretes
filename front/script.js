@@ -1,4 +1,4 @@
-// Cadastro de lembretes
+// Cadastro de lembrete
 $('#cadastrar-lembretes').submit(function (e) {
     e.preventDefault();
 
@@ -13,7 +13,7 @@ $('#cadastrar-lembretes').submit(function (e) {
         data: JSON.stringify(lembrete),
         contentType: 'application/json',
         success: function (response) {
-            listarLembretes()
+            listarLembretes();
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -39,20 +39,24 @@ function listarLembretes() {
     
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/lembretes', 
+        url: 'http://localhost:8080/lembretes/agrupados', 
         dataType: 'json',
         success: function (lembretes) {
             container.innerHTML = '';
-            
-            lembretes.forEach(function (lembrete) {
 
-                var item =  `<div class="card-lembrete">
-                                <h4 class="lembrete-nome">${lembrete.nome}</h4>
-                                <button class="botao-delete" data-id="${lembrete.id}"><i class="bi bi-trash3"></i></button>
-                            </div>`;
-                
-                container.innerHTML += item;
-            });
+            for (var data in lembretes) {
+                var dataHeader = `<h3>${formatarData(data)}</h3>`;
+                container.innerHTML += dataHeader;
+
+                lembretes[data].forEach(function (lembrete) {
+                    var item =  `<div class="card-lembrete">
+                                    <h4 class="lembrete-nome">${lembrete.nome}</h4>
+                                    <button class="botao-delete" data-id="${lembrete.id}"><i class="bi bi-trash3"></i></button>
+                                </div>`;
+                    
+                    container.innerHTML += item;
+                });
+            }
 
             $('.botao-delete').click(function () {
                 var id = $(this).data('id');
@@ -65,7 +69,20 @@ function listarLembretes() {
     });
 }
 
-// Função para excluir um lembrete
+function formatarData(data) {
+    var partes = data.split('-');
+    var ano = parseInt(partes[0]);
+    var mes = parseInt(partes[1]) - 1;
+    var dia = parseInt(partes[2]);
+
+    var data = new Date(ano, mes, dia);
+
+    data.setDate(data.getDate());
+
+    return data.toLocaleDateString('pt-BR');
+}
+
+// Excluir um lembrete
 function deletarLembrete(id) {
     $.ajax({
         type: 'DELETE',
@@ -91,5 +108,8 @@ function deletarLembrete(id) {
 }
 
 $(document).ready(function () {
+    var hoje = new Date().toISOString().split('T')[0];
+    document.getElementById('data_do_lembrete').setAttribute('min', hoje);
+
     listarLembretes();
 });
