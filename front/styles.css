@@ -1,8 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'poppins', sans-serif;
+:root {
+  --cor-fundo: #010f13;
+  --cor-fundo-secundario: #282828;
+
+  --cor-principal: #33b4c4;
+  --cor-principal-hover: #2a8e9b;
+
+  --cor-texto: #ffffff;
+  --cor-texto-secundario: #808080;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  background-color: #010f13;
+  color: var(--cor-texto);
+}
+
+#tela-lembretes {
+    display: grid;
+    grid-template-columns: 35% 60%;
+    gap: 10vh; 
+    height: 100vh;
+    padding: 5vh 10vh;
+    box-sizing: border-box;
+}
+
+#container-cadastro-lembretes {
+    grid-column: 1; 
+  }
+  
+  #container-lista-lembretes {
+    grid-column: 2; 
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+#cadastrar-lembretes h2 {
+  margin-bottom: 15px;
+}
+
+.input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input input {
+    color: var(--cor-texto);
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    font-size: 18px;
+    border: 1px solid var(--cor-texto-secundario);
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    background-color: var(--corfundo);
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+
+.input label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: var(--cor-texto-secundario);
+  font-size: 19px;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input input:valid ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto-secundario);
+}
+
+.input input:focus,
+.input input:not(:placeholder-shown) {
+  border-color: var(--cor-texto-secundario);
+}
+
+.input input:focus {
+  border-color: var(--cor-principal);
+}
+
+.input input:focus ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  background: var(--cor-fundo);
+  color: var(--cor-principal);
+}
+
+.input input[type="date"]:not(:placeholder-shown) ~ label {
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  padding: 0 1px;
+  background: var(--cor-fundo);
+  color: var(--cor-texto-secundario);
+}
+
+.input input[type="date"]:focus ~ label {
+  color: var(--cor-principal);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+#botao-cadastrar-lembretes {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  font-weight: 600;
+  border: none;
+  padding: 10px;
+  height: 40px;
+  font-size: 15px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#botao-cadastrar-lembretes:hover {
+  background-color: var(--cor-principal-hover);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#container-lista-lembretes {
+    display: flex;
+    flex-direction: column;
+}
+
+#container-lista-lembretes h2 {
+    margin-bottom: 20px;
+}
+
+#exibir-lembretes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-lembrete {
+    background-color: var(--cor-fundo-secundario);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.card-lembrete h4 { 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.botao-delete {
+    background-color: transparent;
+    color: var(--cor-texto-secundario);
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao-delete i {
+    font-size: 17px;
+}
+
+.botao-delete img {
+    width: 25px; 
+    height: 25px; 
+}
+
+.botao-delete:hover {
+    color: var(--cor-principal);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #tela-lembretes {
+        padding: 4vh;
+        display: block;
+    }
+}
+  

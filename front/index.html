@@ -4,21 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <title>DTI | Lembretes</title>
 </head>
 
 <body>
-    <main>
-        <form id="cadastrar-lembretes">
-            <label for="nome_do_lembrete">Nome do Lembrete</label>
-            <input type="text" id="nome_do_lembrete" name="nome_do_lembrete">
-
-            <label for="data_do_lembrete">Data do Lembrete</label>
-            <input type="date" id="data_do_lembrete" name="data_do_lembrete">
-
-            <button type="submit">Enviar</button>
-        </form>
+    <main id="tela-lembretes">
+        <div id="container-cadastro-lembretes">
+            <form id="cadastrar-lembretes">
+                <h2>Novo lembrete</h2>
+                <div class="input">
+                    <input type="text" id="nome_do_lembrete" name="nome_do_lembrete" required>
+                    <label for="nome_do_lembrete">Nome do Lembrete</label>
+                </div>
+                <div class="input">
+                    <input type="date" id="data_do_lembrete" name="data_do_lembrete" required>
+                    <label for="data_do_lembrete">Data do Lembrete</label>
+                </div>
+                <button id="botao-cadastrar-lembretes" type="submit">Criar lembrete</button>
+            </form>
+        </div>
+        <div id="container-lista-lembretes">
+            <h2>Meus lembretes</h2>
+            <div id="exibir-lembretes"></div>
+        </div>
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
