@@ -1,8 +1,6 @@
-![1567723452128](https://github.com/user-attachments/assets/8d008c09-e448-4e81-9b60-e3abd12ed260)
+# Sistema de Lembretes
 
-# DTI | Lembretes
-
-[Sistema](https://imgur.com/a/qZ9s7qF) para gerenciamento de lembretes, desenvolvido como parte do teste prático para estágio em desenvolvimento na DTI.
+Este sistema foi desenvolvido como parte de um projeto de aprendizado com o objetivo de aprimorar minhas habilidades em desenvolvimento de software, design de interface e lógica de programação. Ele permite que os usuários criem, visualizem, editem e removam lembretes de maneira fácil e intuitiva.
 
 ## 💻 Tecnologias utilizadas
 * [SpringBoot](https://spring.io/projects/spring-boot)
@@ -21,7 +19,7 @@
 ## 📰 Instruções de uso
 * Clonar o repositório git.
 ```
-https://github.com/iannovais/dti-lembretes.git
+https://github.com/iannovais/lembretes.git
 ```
 * Iniciar o banco de dados.
 ```
