@@ -27,5 +27,5 @@ username= "root"
 password= " "
 ```
 * Iniciar o projeto.
-* Navegar até o arquivo `lembreteApplication.java` que se encontra na pasta `front`, e iniciá-lo.
-* Abrir o arquivo `index.html` que se encontra na pasta `back`.
+* Navegar até o arquivo `lembreteApplication.java` que se encontra na pasta `back`, e iniciá-lo.
+* Abrir o arquivo `index.html` que se encontra na pasta `front`.
